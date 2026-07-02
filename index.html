@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Worldwide movie explorer</p>
+          <h1>Search Hollywood, Bollywood, and global movies instantly.</h1>
+          <p class="hero-text">
+            Find movies by title, check IMDb ratings, view box office earnings,
+            see posters, and open cast details with watch or download options.
+          </p>
+          <form id="searchForm" class="search-box">
+            <input
+              id="movieInput"
+              type="text"
+              placeholder="Try: Avengers, Dangal, Inception"
+              autocomplete="off"
+            />
+            <button type="submit">Search Movies</button>
+          </form>
+          <div id="statusMessage" class="status-message"></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="results-section" aria-live="polite">
+          <div id="movieGrid" class="movie-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Finder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Worldwide movie explorer</p>
-          <h1>Search Hollywood, Bollywood, and global movies instantly.</h1>
-          <p class="hero-text">
-            Find movies by title, check IMDb ratings, view box office earnings,
-            see posters, and open cast details with watch or download options.
-          </p>
-          <form id="searchForm" class="search-box">
-            <input
-              id="movieInput"
-              type="text"
-              placeholder="Try: Avengers, Dangal, Inception"
-              autocomplete="off"
-            />
-            <button type="submit">Search Movies</button>
-          </form>
-          <div id="statusMessage" class="status-message"></div>
-        </div>
-      </header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket Score Board</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#222;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+.container{
+    text-align:center;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    width:350px;
+}
+h1{
+    margin-bottom:20px;
+}
+p{
+    font-size:22px;
+}
+button{
+    padding:10px 20px;
+    margin:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
 
-      <main>
-        <section class="results-section" aria-live="polite">
-          <div id="movieGrid" class="movie-grid"></div>
-        </section>
-      </main>
-    </div>
+<div class="container">
+    <h1>Cricket Score Board</h1>
 
-    <script src="script.js"></script>
-  </body>
+    <p>Balls : <span id="balls">0</span></p>
+    <p>Runs : <span id="runs">0</span></p>
+
+    <button id="hitBtn" onclick="hitBall()">Click to Hit the Ball</button>
+    <button onclick="resetGame()">Reset Game</button>
+</div>
+
+<script>
+let balls = 0;
+let runs = 0;
+
+const scores = [0,1,2,3,4,6];
+
+function hitBall(){
+    if(balls < 6){
+        let randomRun = scores[Math.floor(Math.random()*scores.length)];
+        runs += randomRun;
+        balls++;
+
+        document.getElementById("balls").innerText = balls;
+        document.getElementById("runs").innerText = runs;
+
+        if(balls === 6){
+            document.getElementById("hitBtn").disabled = true;
+            alert("Over Finished!");
+        }
+    }
+}
+
+function resetGame(){
+    balls = 0;
+    runs = 0;
+    document.getElementById("balls").innerText = balls;
+    document.getElementById("runs").innerText = runs;
+    document.getElementById("hitBtn").disabled = false;
+}
+</script>
+
+</body>
 </html>
